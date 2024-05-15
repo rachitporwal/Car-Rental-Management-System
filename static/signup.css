@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  font-family: "Poppins",sans-serif;
+}
+
+:root{
+  --main-color: #147487;
+  --second-color: #A9D5DD;
+  --third-color: #C9E8FF;
+  --text-color: #444;
+  --gradient: linear-gradient(#147487,#A9D5DD);
+}
+
+
+body{
+  background-image: url("images/back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home a{
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  font-size: 2rem;
+  color: var(--main-color);
+}
+
+.home a:hover{
+  font-size: 3rem;
+  color: var(--second-color);
+  cursor: pointer;
+}
+
+form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(10px);
+  color: black;
+  padding: 25px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.needs{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap : 1.2rem;
+  padding-bottom: 30px;
+}
+
+form p{
+  font-size: 2.5rem;
+  padding-bottom: 30px;
+}
+
+form p span{
+  color: var(--main-color);
+}
+
+form div{
+  padding: 10px;
+}
+
+form div input{
+  background: var(--third-color);
+  border: none;
+  font-size: 1.25rem;
+  border-radius: 5px;
+}
+
+form #submit{
+  padding: 3px 10px;
+  border: none;
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 10px;
+}
+
+form #submit:hover{
+  cursor: pointer;
+  background-color: var(--second-color);
+  color: var(--text-color);
+}
+
+.error{
+  padding: 0px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: rgb(248, 60, 60);
+}
+
+#aacc{
+  font-size: 1.2rem;
+  color: black;
+}
+
+#aacc a{
+  text-decoration: none;
+  color: #fff;
+}

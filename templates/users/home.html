@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <title>Home</title>
+</head>
+<body>
+  <!-- header -->     
+  <header>
+    <a href="{{ url_for('home')}}">GHUMO</a>
+    <div class="navlink">
+      <a href="{{ url_for('aboutus')}}">About Us</a>
+      <a href="{{ url_for('rent')}}">Rent Now</a>
+      <a href="{{ url_for('hiw')}}">How it works</a>
+    </div>
+    <div class="signlink">
+      {% if check %}
+        <a href="{{ url_for('dash') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}" id="register">LogOut</a>
+      {% else %}
+        <a href="{{ url_for('signin') }}">Sign In</a>
+        <a href="{{url_for('signup')}}" id="register">Register</a>
+      {% endif %}
+    </div>
+  </header>
+  
+  <!-- info -->
+  <section class="info">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for msg in messages %}
+            <p id="error">{{msg}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    <p><span>Welcome</span> to Ghumo Car Rentals</p>
+    <div>
+      <a href="{{ url_for('rent')}}" id="rent">Rent Now</a> 
+      <a href="{{ url_for('aboutus')}}">Learn More...</a>   
+    </div>
+  </section>
+  
+  <!-- features -->
+  <section class="feature">
+    <p>Why Choose Ghumo Car Rentals</p>
+    <div class="container">
+      <div>
+        <i class='bx bx-cube'></i>
+        <p>
+        Convenient Booking<br>
+        <span>Easily book a car rental from nearby locations</span>
+        </p>
+      </div>
+      <div>
+        <i class='bx bx-cube'></i>
+        <p>
+        Wide Selection<br>
+        <span>Choose from a variety of cars to suit your needs</span>
+        </p>
+      </div>
+      <div>
+        <i class='bx bx-cube'></i>
+        <p>
+        Flexible Rental Options<br>
+        <span>Rent by the hour, day, week, or month</span>
+        </p>
+      </div>
+      <div>
+        <i class='bx bx-cube'></i>
+        <p>
+        24/7 Customer Support<br>
+        <span>Get assistance anytime you need it</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- footer -->
+  <footer>
+    <p>@2024 <span>Ghumo</span>, All Rights Reserved</p>
+    <div class="social">
+      <p>Customer Care: 999-999-999</p>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='rent.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Rent Now</title>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <a href="{{ url_for('home')}}">GHUMO</a>
+    <div class="navlink">
+      <a href="{{ url_for('aboutus')}}">About Us</a>
+      <a href="{{ url_for('rent')}}">Rent Now</a>
+      <a href="{{ url_for('hiw')}}">How it works</a>
+    </div>
+    <div class="signlink">
+      {% if check %}
+        <a href="{{ url_for('dash') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}" id="register">LogOut</a>
+      {% else %}
+        <a href="{{ url_for('signin') }}">Sign In</a>
+        <a href="{{url_for('signup')}}" id="register">Register</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <section class="search">
+    <img src="{{ url_for('static', filename='/images/car.jpg') }}" alt="">
+    <form class="dates" method="POST">
+      {{ form.csrf_token }}
+      {{ form.hidden_tags }}
+      <div> 
+        {{date.location.label}}<br>
+        {{date.location(class="in")}}
+      </div>
+      <div>
+        {{date.pickup.label}}<br>
+        {{date.pickup(class="in",id="pickup")}}
+      </div>
+      <div>
+        {{date.return_date.label}}<br>
+        {{date.return_date(class="in", id="return")}}
+      </div>
+      {{date.submit(id="submit")}}
+    </form>
+  </section>
+
+  <div class="main">
+    <form class="filter", method="POST">
+      {{ form.csrf_token }}
+      {{ form.hidden_tags }}
+      <p>Filters</p>
+      <div>
+        {{form.brand.label }}<span>*</span><br>
+        {{form.brand}}
+      </div>
+      <div>
+        {{form.bodytype.label}}<span>*</span><br>
+        {{form.bodytype}}
+      </div>
+      <div>
+        {{form.fueltype.label}}<span>*</span><br>
+        {{form.fueltype}}
+      </div>
+      <div>
+        {{form.fasttag}}
+        {{form.fasttag.label}}<br>
+        {{form.sunroof}}
+        {{form.sunroof.label}}<br>
+        {{form.airbags}}
+        {{form.airbags.label}}
+      </div>
+      {{form.apply(id="apply")}}
+    </form>
+    
+    <div class="content">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for msg in messages %}
+            <p class="error">{{msg}}</p>
+          {% endfor %}
+        {% else %}
+          {% if car %}
+            {% for i in car %}
+              <div class="box">
+                <div class="box-img">
+                  <img src= {{i[-1]}} alt="">
+                </div>
+                <p>{{i[2]}}</p>
+                <h3>{{i[1]}}</h3>
+                <h2>{{i[9]}}<span>/day</span></h2>
+                <button class="btn" id={{i[0]}}>Rent</button>
+              </div>
+            {% endfor %}
+          {% elif not carerror %}
+            <p class="error">Please select city and times.</p>
+          {% else %}
+          <p class="error">No cars to be displayed</p>
+        {% endif %}
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- footer -->
+  <footer>
+    <p>@2024 <span>Ghumo</span>, All Rights Reserved</p>
+    <div class="social">
+      <p>Customer Care: 999-999-999</p>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Function to update return date min attribute
+      function updateReturnDateMin() {
+        var pickupDate = $('#pickup').val();
+        $('#return').attr('min', pickupDate);
+      }
+    
+      // Call the function on page load
+      updateReturnDateMin();
+    
+      // Call the function whenever the pickup date changes
+      $('#pickup').change(function() {
+        updateReturnDateMin();
+      });
+    });
+
+    $(document).ready(function(){
+            $(".btn").click(function(){
+                var button_id = $(this).attr('id');
+                $.ajax({
+                    type: 'POST',
+                    url: '/button_clicked',
+                    data: {button_id: button_id},
+                    success: function(response) {
+                      window.location.href = '/Billing';
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+  </script>
+
+</body>
+</html>

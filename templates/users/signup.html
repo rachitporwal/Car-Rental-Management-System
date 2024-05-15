@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static',filename='signup.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <title>SignUp</title>
+</head>
+<body>
+  <div class="home">
+    <a href="{{url_for('home')}}"><i class='bx bxs-home'></i></a>
+  </div>
+
+  <form method="POST" id="signup-form">
+    <p><span>Sign</span>Up</p>
+    {{ form.csrf_token }}
+    {{ form.hidden_tags }}
+    <div class="needs">
+        <div>
+            {{ form.name.label }}<br>
+            {{ form.name(size=20) }}<br>
+            {% for error in form.name.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.license.label }}<br>
+            {{ form.license(size=20) }}<br>
+            {% for error in form.license.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.adcard.label }}<br>
+            {{ form.adcard(size=20) }}<br>
+            {% for error in form.adcard.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.phno.label }}<br>
+            {{ form.phno(size=20) }}<br>
+            {% for error in form.phno.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.emailid.label }}<br>
+            {{ form.emailid(size=20) }}<br>
+            {% for error in form.emailid.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            {{ form.password.label }}<br>
+            {{ form.password(size=20) }}<br>
+            {% for error in form.password.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <p class="error">{{msg}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <p id="aacc">Already have an account!!! <a href="{{ url_for('signin') }}">Sign In</a></p>
+    <input id="submit" type="submit" value="SignUp">
+</form>
+</body>
+</html>

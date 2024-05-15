@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='hiw.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <title>How It Works</title>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <a href="{{ url_for('home')}}">GHUMO</a>
+    <div class="navlink">
+      <a href="{{ url_for('aboutus')}}">About Us</a>
+      <a href="{{ url_for('rent')}}">Rent Now</a>
+      <a href="{{ url_for('hiw')}}">How it works</a>
+    </div>
+    <div class="signlink">
+      {% if check %}
+        <a href="{{ url_for('dash') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}" id="register">LogOut</a>
+      {% else %}
+        <a href="{{ url_for('signin') }}">Sign In</a>
+        <a href="{{url_for('signup')}}" id="register">Register</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <section class="hiw">
+    <div class="heading">
+      <p><span>How</span> it works</p>
+      <h1>Rent With 3 Easy steps</h1>
+    </div>
+    <div class="steps">
+      <div class = box>
+        <i class='bx bxs-map'></i>
+        <h2>Choose a location</h2>
+        <p>Choose your desired location and enjoy your ride.</p>
+      </div>
+
+      <div class = box>
+        <i class='bx bxs-calendar-alt' ></i>
+        <h2>Pick-up Date</h2>
+        <p>Choose your desired date and enjoy your ride.</p>
+      </div>
+
+      <div class = box>
+        <i class='bx bxs-calendar-star' ></i>
+        <h2>Book a car</h2>
+        <p>Choose your desired location and enjoy your ride.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="faqs">
+    <div class="ques">
+      <p>Common Question</p>
+      <p style="font-size: 1.2rem; font-weight: 400">Here are some of the most common questions that we get.</p>
+    </div>
+    <div class="ans">
+      <p id="q">How can I book a car for rental with Ghumo?</p>
+      <p id="a">You can book a car for rental with Ghumo by visiting our website or contacting our office directly.</p>
+      <p id="q">What types of cars are available for rental at Ghumo?</p>
+      <p id="a">Ghumo offers a variety of cars for rental including sedans, SUVs, and luxury vehicles.</p>
+      <p id="q">Is there a minimum age requirement to rent a car from Ghumo?</p>
+      <p id="a">Yes, the minimum age requirement to rent a car from Ghumo is 21 years old.</p>
+      <p id="q">Can I return the rental car to a different location than where I picked it up?</p>
+      <p id="a">Yes, Ghumo offers the flexibility to return the rental car to a different location for an additional fee.</p>
+      <p id="q">What should I do in case of an emergency while using a Ghumo rental car?</p>
+      <p id="a">In case of an emergency while using a Ghumo rental car, please contact our 24/7 customer support hotline for assistance.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- footer -->
+  <footer>
+    <p>@2024 <span>Ghumo</span>, All Rights Reserved</p>
+    <div class="social">
+      <p>Customer Care: 999-999-999</p>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+    </div>
+  </footer>
+</body>
+</html>

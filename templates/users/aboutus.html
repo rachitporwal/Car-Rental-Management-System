@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='aboutus.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <title>About Us</title>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <a href="{{ url_for('home')}}">GHUMO</a>
+    <div class="navlink">
+      <a href="{{ url_for('aboutus')}}">About Us</a>
+      <a href="{{ url_for('rent')}}">Rent Now</a>
+      <a href="{{ url_for('hiw')}}">How it works</a>
+    </div>
+    <div class="signlink">
+      {% if check %}
+        <a href="{{ url_for('dash') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}" id="register">LogOut</a>
+      {% else %}
+        <a href="{{ url_for('signin') }}">Sign In</a>
+        <a href="{{url_for('signup')}}" id="register">Register</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <section class="company">
+    <p><span>Explore</span> with Ghumo Car Rentals</p>
+    <div>
+      <p id="aim"><span>Our</span> Story</p>
+      <p>Our journey began with a humble vision to offer cost-effective and convenient solutions to our valued customers. We started on a small scale, driven by the desire to provide affordable and reliable car rental services.</p>
+    </div>
+    <div>
+      <p  id="aim"><span>Our</span> Mission</p>
+      <p>At Ghumo, our mission is to provide travelers with convenient and affordable car rental services, making it easy for them to book cars through our platform.</p>
+    </div>
+    <div>
+      <p id="aim"><span>Our</span> Locations</p>
+      <p>Our car rental services cover multiple locations across Ahmedabad and Gandhinagar, ensuring convenience and accessibility for our customers throughout the region.</p>
+    </div>
+  </section>
+
+  <section class="review">
+    <div class="heading">
+      <span>Reviews</span>
+      <h1>Whats Our Customer Say</h1>
+    </div>
+    <div class="reviews-container">
+      <div class="box">
+        <div class="rev-img">
+          <img src="{{ url_for('static', filename='images/rev1.jpg') }}" alt="">
+        </div>
+        <h2>Janmay Panchal</h2>
+        <div class="stars">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star-half"></i>
+        </div>
+        <p>I had a fantastic experience with Ghumo! The rental rates were competitive, the vehicle was comfortable, and the service was top-notch. I wouldn't hesitate to recommend Ghumo to friends and family.</p>
+      </div>
+
+      <div class="box">
+        <div class="rev-img">
+          <img src="{{ url_for('static', filename='images/rev2.jpg') }}" alt="">
+        </div>
+        <h2>Rachit Shah</h2>
+        <div class="stars">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+        </div>
+        <p>Ghumo exceeded my expectations! The booking process was easy, the car was clean and well-maintained, and the customer service was exceptional. I highly recommend Ghumo for your rental car needs.</p>
+      </div>
+
+      <div class="box">
+        <div class="rev-img">
+          <img src="{{ url_for('static', filename='images/rev3.jpg') }}" alt="">
+        </div>
+        <h2>Aarshi Patel</h2>
+        <div class="stars">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+        </div>
+        <p>Five stars for Ghumo! From start to finish, everything was perfect. The booking was simple, the car was exactly what I needed, and the team at Ghumo went above and beyond to ensure I had a great experience. Thank you, Ghumo!</p>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- footer -->
+  <footer>
+    <p>@2024 <span>Ghumo</span>, All Rights Reserved</p>
+    <div class="social">
+      <p>Customer Care: 999-999-999</p>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+    </div>
+  </footer>
+</body>
+</html>

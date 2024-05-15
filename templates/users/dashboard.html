@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static',filename='dashboard.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <title>dashboard</title>
+</head>
+<body>
+  <!-- header -->     
+  <header>
+    <a href="{{ url_for('home')}}">GHUMO</a>
+    <div class="navlink">
+      <a href="{{ url_for('aboutus')}}">About Us</a>
+      <a href="{{ url_for('rent')}}">Rent Now</a>
+      <a href="{{ url_for('hiw')}}">How it works</a>
+    </div>
+    <div class="signlink">
+      <a href="{{ url_for('dash') }}">Dashboard</a>
+      <a href="{{ url_for('logout') }}" id="register">LogOut</a>
+    </div>
+  </header>
+
+  <section>
+    <i class='bx bxs-user'></i>
+    <p>Welcome {{user}}</p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <p id="success">{{msg}}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form class="dash-form" method="POST">
+      {{ form.csrf_token }}
+      {{ form.hidden_tags }}
+      <div class="contents">
+        <div>
+          {{ form.name.label }} {{ form.name(size=20, readonly='readonly') }} 
+        </div>
+        <div>
+          {{ form.emailid.label }} {{ form.emailid(size=20, readonly='readonly') }} 
+        </div>
+        <div>
+          {{ form.license.label }} {{ form.license(size=20, readonly='readonly') }} 
+        </div>
+        <div>
+          {{ form.adcard.label }} {{ form.adcard(size=20, readonly='readonly') }} 
+        </div>
+        <div>
+          {{ form.phno.label }} {{ form.phno(size=20, readonly='readonly') }} 
+        </div>
+        <div>
+          {{form.age.label}} {{form.age(size=20, readonly='readonly')}}
+        </div>
+        <div></div>
+      </div>
+      <div class="btn">
+        <input type="button" value="edit" id = "edit" onclick="changes()">
+        {{ form.save(onclick="changeback()") }}
+      </div>
+    </form>
+  </section>
+  
+  <section class="booking">
+    <p>Your Booking History</p><br>
+    {% if booking %}
+      <div class="content">
+        {% for i in booking %}
+          <div>
+            <p>Booking Id: <span>{{i[1]}}</span></p>
+            <p>Pickup Time: <span>{{i[2].date()}}</span></p>
+            <p>Return Time: <span>{{i[3].date()}}</span></p>
+            <p>Vehicle: <span>{{i[0]}}</span></p>
+            <p>Drop Location: <span>{{i[5]}}</span></p>
+            {% if i[-1] %}
+              <p>Status: <span id="inactive">PREVIOUS</span></p>
+            {% else %}
+              <p>Status: <span id="active">CURRENT</span></p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p id="inactive">No Booking History</p>
+    {% endif %}
+  </section>
+
+  <hr>
+
+  <!-- footer -->
+  <footer>
+    <p>@2024 <span>Ghumo</span>, All Rights Reserved</p>
+    <div class="social">
+      <p>Customer Care: 999-999-999</p>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function changes(){
+        const inputs = document.querySelectorAll('.contents input[type="text"], .contents input[type="email"], .contents input[name="age"]');
+        inputs.forEach(input => {
+            input.removeAttribute('readonly');
+        });
+        const editButton = document.getElementById('edit');
+        if (editButton) {
+            editButton.style.backgroundColor = '#A9D5DD';
+            editButton.style.color = "black";
+        } else {
+            console.error('Edit button not found');
+        }
+      }
+
+    function changeback() {
+        const inputs = document.querySelectorAll('.contents input[type="text"], .contents input[type="email"], .contents input[name="age"]');
+        inputs.forEach(input => {
+            input.setAttribute('writeonly');
+        });
+    }
+  </script>
+
+</body>
+</html>

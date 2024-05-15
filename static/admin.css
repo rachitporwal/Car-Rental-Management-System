@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  font-family: "Poppins",sans-serif;
+}
+
+:root{
+  --main-color: #147487;
+  --second-color: #A9D5DD;
+  --third-color: #C9E8FF;
+  --text-color: #444;
+  --gradient: linear-gradient(#147487,#A9D5DD);
+}
+
+html::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+  border-radius: 5rem;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  background-color:  #eeeff1;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px 15px 0px;
+}
+
+header > a{
+  padding-left: 40px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+.navlink a{
+  position: relative;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px;
+}
+
+.signlink a{
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 5px;
+}
+
+.signlink #register{
+  padding: 10px 20px;
+  border: 2px;
+  background: var(--main-color);
+  color: #fff;
+  border-radius: 25px;
+}
+
+section{
+  background-color: var(--third-color);
+  padding: 150px 200px 30px 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-color);
+}
+
+section i{
+  font-size: 5rem;
+  color: var(--main-color);
+}
+section p{
+  padding-bottom: 20px;
+}
+
+.contents{
+  width: 70%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  gap: 2 rem;
+}
+
+.contents div{
+  padding: 30px;
+  font-size: 1.3rem;
+}
+
+.contents div input{
+  background-color: var(--second-color);
+  border: none;
+  border-radius: 1.2rem;
+  padding: 3px 10px;
+}
+
+.dash{
+  width: 100%;
+  font-size: larger;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.dash .specs{
+  padding-right: 25px;
+  border-radius: 3px;
+  color: green;
+  font-weight: 1000;
+}
+
+.navlink a:after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background: var(--gradient);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+.navlink a:hover::after{
+  width: 100%;
+}
+
+.signlink #register:hover{
+  background-color: var(--second-color);
+  color: var(--text-color);
+}
+
+hr {
+  height: 3px;
+  background-color: var(--main-color);
+  border: none;
+}
+
+footer{
+  background-color: #eeeff1;
+  padding: 30px 20px 10px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .social{
+  align-items: center;
+  display: flex;
+}
+
+footer .social p{
+  padding-right: 25px;
+}
+
+footer .social a{
+  padding-left: 5px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: xx-large;
+}
+
+footer .social a i:hover{
+  color: var(--main-color);
+}

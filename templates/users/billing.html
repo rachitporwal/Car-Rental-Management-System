@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static',filename='billing.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <title>Billing</title>
+</head>
+<body>
+  <header>
+    <a href="{{ url_for('home')}}">GHUMO</a>
+    <div class="navlink">
+      <a href="{{ url_for('aboutus')}}">About Us</a>
+      <a href="{{ url_for('rent')}}">Rent Now</a>
+      <a href="{{ url_for('hiw')}}">How it works</a>
+    </div>
+    <div class="signlink">
+      <a href="{{ url_for('dash') }}">Dashboard</a>
+      <a href="{{ url_for('logout') }}" id="register">LogOut</a>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="box">
+      <div class="box-img">
+        <img src= "{{img}}" alt="">
+      </div>
+    </div>
+    <div class="info">
+      <div>
+        <p class="header">Model</p>
+        <p class="txt">{{ name }}</p>
+      </div>
+      <div>
+        <p class="header">Year</p>
+        <p class="txt">{{ year }}</p>
+      </div>
+      <div>
+        <p class="header">Body Type</p>
+        <p class="txt">{{ body_type }}</p>
+      </div>
+      <div>
+        <p class="header">Fuel Type</p>
+        <p class="txt">{{ fuel_type }}</p>
+      </div>
+      <div>
+        <p class="header">Mileage</p>
+        <p class="txt">{{ mileage }}</p>
+      </div>
+      <div>
+        <p class="header">License Number</p>
+        <p class="txt">{{license}}</p>
+      </div>
+      <div>
+        <p class="header">Fasttag/Sunroof/Airbags</p>
+        <p class="txt">{{ fsa }}</p>
+      </div>
+      <div>
+        <p class="header">PUC Insurance</p>
+        <p class="txt">{{ pi }}</p>
+      </div>
+    </div>
+    <form class="pay", method="post">
+      <h2>Your Bill</h2>
+      <p class="title">No of days</p>
+      <p class="subheader">{{days}}</p>
+      <p class="title">Price</p>
+      <p class="subheader">{{price}}</p>
+      <p class="title">Total bill is {{totalbill}}.</p>
+      <p class="special">Thank you</p>
+      <input type="submit" value="Pay Now" class="bill">
+    </form>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <p>@2024 <span>Ghumo</span>, All Rights Reserved</p>
+    <div class="social">
+      <p>Customer Care: 999-999-999</p>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  font-family: "Poppins",sans-serif;
+}
+
+:root{
+  --main-color: #147487;
+  --second-color: #A9D5DD;
+  --third-color: #C9E8FF;
+  --text-color: #444;
+  --gradient: linear-gradient(#147487,#A9D5DD);
+}
+
+html::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+  border-radius: 5rem;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  background-color:  #eeeff1;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px 15px 0px;
+}
+
+header > a{
+  padding-left: 40px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+.navlink a{
+  position: relative;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px;
+}
+
+.signlink a{
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 20px;
+}
+
+.signlink #register{
+  padding: 10px 20px;
+  border: 2px;
+  background: var(--main-color);
+  color: #fff;
+  border-radius: 25px;
+}
+
+.navlink a:after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background: var(--gradient);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+.navlink a:hover::after{
+  width: 100%;
+}
+
+.signlink #register:hover{
+  background-color: var(--second-color);
+  color: var(--text-color);
+}
+
+.info{
+  padding: 150px;
+  display: grid;
+  grid-template-columns: (3fr,1fr);
+  background-color:  #eeeff1;
+  justify-content: center;
+}
+
+.info p{
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.info p span{
+  color: var(--main-color);
+}
+
+.info div{
+  padding-top: 100px;
+  text-align: center;
+}
+
+.info div a{
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.info div #rent{
+  border: 2px;
+  background-color: var(--main-color);
+  border-radius: 25px;
+  color: #fff;
+}
+
+.info div #rent:hover{
+  background-color: var(--second-color);
+  color: var(--text-color);
+}
+
+.feature{
+  padding: 20px;
+  background-color: var(--second-color);
+  text-align: center;
+}
+
+.feature > p{
+  font-size: 2.5rem;
+}
+
+.feature .container{
+  padding: 20px 100px 20px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(470px,2fr));
+  gap: 30px 40px;
+}
+
+.feature .container div{
+  position: relative;
+  height: 150px;
+  padding-top: 20px;
+  padding-left: 20px;
+  text-align: left;
+  background-color: var(--third-color);
+}
+
+.feature .container div i{
+  color: var(--text-color);
+  font-size: 5rem;
+}
+
+.feature .container div p{
+  position: absolute;
+  top: 20px;
+  left: 110px;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.feature .container div p span{
+  font-size: 1.2rem;
+}
+
+#error{
+  border-radius: 50px;
+  text-align: center;
+  background: rgb(255, 169, 169);
+  padding: 0px;
+  font-weight: 550;
+  font-size: 1.2rem;
+  color: rgb(248, 60, 60);
+}
+
+hr {
+  height: 3px;
+  background-color: var(--main-color);
+  border: none;
+}
+
+footer{
+  background-color: #eeeff1;
+  padding: 30px 20px 10px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .social{
+  align-items: center;
+  display: flex;
+}
+
+footer .social p{
+  padding-right: 25px;
+}
+
+footer .social a{
+  padding-left: 5px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: xx-large;
+}
+
+footer .social a i:hover{
+  color: var(--main-color);
+}

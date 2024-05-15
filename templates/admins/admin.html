@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <title>Home</title>
+</head>
+<body>
+  <!-- header -->     
+  <header>
+    <a href="{{ url_for('admin')}}">ADMIN</a>
+    <div class="navlink">
+      <a href="{{ url_for('addv')}}">Add Vehicle</a>
+    </div>
+    <div class="signlink">
+      <a href="{{ url_for('logout')}}" id="register">LogOut</a>
+    </div>
+  </header>
+
+  <section>
+    <i class='bx bxs-user'></i>
+    <p>Hello ADMIN</p>
+    <div class="contents">
+      <div>
+        {{ form.name.label }} {{ form.name(size=20, readonly='readonly') }} 
+      </div>
+      <div>
+        {{ form.emailid.label }} {{ form.emailid(size=20, readonly='readonly') }} 
+      </div>
+      <div>
+        {{ form.license.label }} {{ form.license(size=20, readonly='readonly') }} 
+      </div>
+      <div>
+        {{ form.adcard.label }} {{ form.adcard(size=20, readonly='readonly') }} 
+      </div>
+      <div>
+        {{ form.phno.label }} {{ form.phno(size=20, readonly='readonly') }} 
+      </div>
+      <div>
+        {{form.age.label}} {{form.age(size=20, readonly='readonly')}}
+      </div>
+    </div>
+    <div class="dash">
+      <pre>Available Vehicles:    </pre>
+      <p class="specs">{{available}}</p>
+      <pre>Total Users:    </pre>
+      <p class="specs">{{not_available}}</p>
+      <pre>Not Available Vehicles:    </pre>
+      <p class="specs" style="color: rgb(260,64,64);">{{users}}</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- footer -->
+  <footer>
+    <p>@2024 <span>Ghumo</span>, All Rights Reserved</p>
+    <div class="social">
+      <p>Customer Care: 999-999-999</p>
+      <a href="#"><i class='bx bxl-instagram'></i></a>
+      <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+    </div>
+  </footer>
+</body>
+</html>
