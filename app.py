@@ -7,10 +7,10 @@ from wtforms.validators import InputRequired, DataRequired, Email, ValidationErr
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-app.secret_key = 'Mann@123'
+app.secret_key = 'Rachit@123'
 app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'mppatel0608@gmail.com'
+app.config['MAIL_USERNAME'] = 'rachitporwal554@gmail.com'
 app.config['MAIL_PASSWORD'] = 'tzui pshx uoni rnsi'
 app.config['MAIL_USE_TLS'] = True
 # app.config['MAIL_USE_SSL'] = True
